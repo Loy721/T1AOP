@@ -1,0 +1,23 @@
+<Configuration status="WARN">
+    <Properties>
+        <Property name="basePath">C:\Users\dynka\IdeaProjects\t1aop\logs</Property>
+        <Property name="CLR">{FATAL=bright red, ERROR=red, WARN=bright yellow, INFO=Normal, DEBUG=white, TRACE=black}</Property>
+    </Properties>
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%highlight{%5p- %d{yy-MM-dd HH:mm:ss.SSS}}${CLR} %clr{${sys:PID}}{magenta}%clr{-}{faint}%clr{[%15.15t]}{faint} %clr{%-40.40c{1.}}{cyan}  %highlight{: %m%n%xwEx}${CLR}" disableAnsi="false"/>
+        </Console>
+        <File name="LogToFile" fileName="logs/app.log">
+            <PatternLayout>
+                <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+            </PatternLayout>
+        </File>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="LogToFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
