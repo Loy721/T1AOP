@@ -34,7 +34,7 @@ public class User {
     private String mail;
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     @ToString.Exclude
-    private List<Order> orders =  new ArrayList<>();
+    private List<Order> orders = new ArrayList<>();
 
     public void addOrder(Order order) {
         orders.add(order);
