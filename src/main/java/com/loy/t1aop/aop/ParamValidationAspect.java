@@ -26,7 +26,7 @@ public class ParamValidationAspect {
     public void validate(JoinPoint joinPoint) throws NoSuchMethodException {
         Object[] args = joinPoint.getArgs();
         if (args != null) {
-            Object target = joinPoint.getTarget();
+            Object target = joinPoint.getTarget(); // берем таргет объект, чтобы получить аннотации параметров метода
             if (Arrays.stream(args).anyMatch(Objects::isNull))
                 throw new ValidateException("Невозможно определить метод, пока параметры равны null");
             Class<?>[] params = Arrays.stream(args).map(Object::getClass).toArray(Class<?>[]::new);
